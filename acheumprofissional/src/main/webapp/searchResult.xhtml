@@ -1,0 +1,131 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+		
+		   <script type="text/javascript">
+				
+				$(document).ready(function() {
+				   	
+					/* $('.resultTable tr td').click( function() {*/
+					$("table[role='grid']").delegate("tr td", "click", function(e) {
+						var id = null;
+						var index = $(this).index();
+						
+						if (index == 0) {							
+							id = $(this).text().trim();						
+						} else if (index == 1) {							
+							id = $(this).prev().text().trim();						
+						} else if (index == 2) {							
+							id = $(this).prev().prev().text().trim();
+						} else if (index == 3) {
+							id = $(this).prev().prev().prev().text().trim();														
+						}
+						
+						if (parseInt (id) > 0) {
+							redirectTo ('details.page?workerId=' + id);
+						}
+					});		
+				   
+			    });
+				
+				function displayButtonLogin () {
+					
+					$('.search-container-button').show();
+					
+				}
+			
+			</script>
+
+		    <ui:include src="/layout/mainNavSearchResult.xhtml" />		    
+		    
+		    <section id="addWorker" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Resultados da busca</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+		                <div class="row-info">Clique na linha para ver os detalhes de cada registro.</div>
+							<div class="col-sm-6 col-sm-offset-3 search-result-container">								
+								<div id="container-search-result">									
+									<p:dataTable id="resultTableWorkers" styleClass="resultTable" value="#{searchResultController.workerVOListForm}" var="workerVO" 
+										rows="20" 
+										paginator="true" 
+										paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {NextPageLink}"
+			                         	rowsPerPageTemplate="5"
+			                         	emptyMessage="Nenhum registro foi encontrado.">
+									    <p:column headerText="Id" sortBy="#{workerVO.workerId}">
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.workerId}" />        	
+									        </div>
+									    </p:column>
+									    <p:column headerText="Primeiro nome" sortBy="#{workerVO.firstName}" >
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.firstName}" />        	
+									        </div>
+									    </p:column>
+									    <p:column headerText="Segundo nome" sortBy="#{workerVO.lastName}" >
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.lastName}" />
+									        </div>
+									    </p:column>
+									    <p:column headerText="Recomendações" sortBy="#{workerVO.recommendations}">
+									        <div align="center">
+									        	<img src="resources/img/like.png" border="0" style="margin-right:10px;"/> <h:outputText value="#{workerVO.recommendations}" />
+									        </div>
+									    </p:column>
+									    <p:column headerText="Telefone" sortBy="#{workerVO.phone}" rendered="#{!searchResultController.showPhone}">
+									        <div align="center">						        
+										        <p:commandLink id="lnkSeePhone" action="#{loginController.setWorkerId(workerVO.workerId)}" style="text-align: center;" onclick="javascript:window.scrollTo(0, 1300);displayButtonLogin();">
+	        										<h:outputText value="Ver telefone" />
+	    										</p:commandLink>
+									        </div>
+									    </p:column>
+									    <p:column headerText="Telefone" sortBy="#{workerVO.phone}" rendered="#{searchResultController.showPhone}">
+									        <div align="center">						        
+										        <div align="center">
+									        		<h:outputText value="#{workerVO.phone}" />
+									        	</div>
+									        </div> 								        
+									    </p:column>									    								    
+									</p:dataTable>
+								</div>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+		    
+		    <section id="howitworks" class="bg-primary text-center">
+		        <div class="container">
+		           <div class="col-sm-6 col-sm-offset-3 contract-info-container">		                            	
+                   	<span class="howitworks-title-container">Contratante</span><br/><br/>                            	
+                   	<p style="text-align:left">Uma vez selecionado o profissional.</p>
+                   	<p style="text-align:left">Você verá o campo "Ver telefone".</p>
+                   	<p style="text-align:left">Este campo levará você para a seção login.</p>
+                   	<p style="text-align:left">Uma vez logado, você poderá voltar à listagem de profissionais.</p>
+                   	<p style="text-align:left">E visualizar o telefone do profissional.</p>                  	
+                   </div>		                    
+		       </div>
+		       <br/>
+		    </section>
+		    
+		    
+		    <ui:include src="/layout/loginSearchResult.xhtml" />
+		    
+
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

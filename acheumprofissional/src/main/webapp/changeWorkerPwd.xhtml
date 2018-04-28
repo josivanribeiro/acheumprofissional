@@ -1,0 +1,75 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+
+		    <ui:include src="/layout/mainNavWorker.xhtml" />		    
+		    
+		    <section id="details" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Alterar senha</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+		                
+							<div class="col-sm-6 col-sm-offset-3 search-result-container">								
+								
+								
+								<h:form id="formUpdateWorkerPwd">
+								
+								
+									<div id="container-search-result">									
+										
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Nova senha
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputSecret id="txtFirstPwd" value="#{workerController.firstPwdForm}" maxlength="50" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left" style="height: 58px;">
+												Confirmação da senha
+											</div>
+											<div id="container-row-mydata-right" align="left" style="height: 58px;">
+												<h:inputSecret id="txtConfirmationPwd" value="#{workerController.confirmationPwdForm}" maxlength="100" />
+											</div>									
+										</div>
+																											
+																		
+									</div>
+									
+									<p:messages id="messagesUpdateWorkerPwd" globalOnly="true" for="formUpdateWorkerPwd:messagesUpdateWorkerPwd" showDetail="true" autoUpdate="true" closable="true" />
+										
+									<div class="search-container-button">
+										<BR />
+										<p:commandLink id="btnUpdateWorker"  actionListener="#{workerController.updatePwd}" styleClass="btn btn-outline btn-xl page-scroll" update="messagesUpdateWorkerPwd, txtFirstPwd, txtConfirmationPwd" onclick="hideWithTimer('formUpdateWorkerPwd\\:messagesUpdateWorkerPwd');submitWithTimer('formUpdateWorkerPwd');">
+        									<h:outputText value="Alterar" />
+    									</p:commandLink>										 
+										 										 
+									</div>	
+									
+									
+								</h:form>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

@@ -1,0 +1,82 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+
+		    <ui:include src="/layout/mainNavContractor.xhtml" />
+		    
+		    <section id="contactsViewed" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Contatos visualizados</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+							<div class="col-sm-6 col-sm-offset-3 contacts-viewed-container">
+								
+								<div id="container-search-result">
+						
+									<p:dataTable id="resultTableWorkers" styleClass="resultTable" value="#{contractorController.workerWithWorkerViewsListForm}" var="workerVO" 
+										rows="5" 
+										paginator="true" 
+										paginatorTemplate="{CurrentPageReport} {PreviousPageLink} {NextPageLink}"
+			                         	rowsPerPageTemplate="5"
+			                         	emptyMessage="Nenhum registro foi encontrado.">
+									    <p:column headerText="Primeiro nome" sortBy="#{workerVO.firstName}">
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.firstName}" />        	
+									        </div>
+									    </p:column>
+									    <p:column headerText="Segundo nome" sortBy="#{workerVO.lastName}">
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.lastName}" />
+									        </div>
+									    </p:column>
+									    <p:column headerText="Telefone" sortBy="#{workerVO.phone}">
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.phone}" />
+									        </div>
+									    </p:column>
+									    <p:column headerText="Quantidade visualizações" sortBy="#{workerVO.workerViewsCount}">
+									        <div align="center">
+									        	<h:outputText value="#{workerVO.workerViewsCount}" />
+									        </div>
+									    </p:column>
+									    <p:column headerText="Recomendar" sortBy="#{workerVO.workerViewsCount}">
+									        <div align="center">
+									        	<p:commandLink id="lnkRecommendation" action="#{contractorController.setRecommendation(workerVO.workerId)}">
+	        										<img src="resources/img/like.png" border="0" onclick="hideWithTimer('formRecommendation\\:messagesRecommendation');" />
+	    										</p:commandLink>
+									        </div>
+									    </p:column>
+											    									    
+									</p:dataTable>
+									
+									<h:form id="formRecommendation">	
+										<p:messages id="messagesRecommendation" globalOnly="true" for="formRecommendation:messagesRecommendation" showDetail="true" autoUpdate="true" closable="true" />
+									</h:form>
+									
+									
+								</div>
+								
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+
+		    
+		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

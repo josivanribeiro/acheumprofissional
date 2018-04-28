@@ -1,0 +1,155 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+		
+		    <script type="text/javascript">
+				
+			    $(document).ready(function() {
+						   
+			    	hideWithTimer('formUpdateWorker\\:messagesUpdateWorker');
+									
+				});  			   				
+			
+			</script>
+
+		    <ui:include src="/layout/mainNavWorker.xhtml" />		    
+		    
+		    <section id="details" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Meus dados</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+		                
+							<div class="col-sm-6 col-sm-offset-3 search-result-container" style="height: 1000px;">								
+								
+								
+								<h:form id="formUpdateWorker" enctype="multipart/form-data">
+								
+								
+									<div id="container-search-result">									
+										
+										<div id="container-row-detail">
+											<p:graphicImage value="#{workerController.thumbImage}"/>									
+										</div>									
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Primeiro nome
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtFirstNameWorker" value="#{workerController.firstNameForm}" maxlength="60" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Segundo nome
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtLastNameWorker" value="#{workerController.lastNameForm}" maxlength="100" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Nome do usuário
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtUsernameWorker" value="#{workerController.usernameForm}" maxlength="50" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Profissão
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:selectOneMenu id="selectJobCategoryWorker" value="#{workerController.jobCategoryIdForm}" styleClass="worker-job-category-container" style="height: 47px;">
+	   											<f:selectItems value="#{jobCategoryController.jobCategoryMap}" />
+	   										</h:selectOneMenu>
+											</div>									
+										</div>								
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												CPF
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtCpfWorker" value="#{workerController.cpfForm}" maxlength="14" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Email
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtEmailWorker" value="#{workerController.emailForm}" maxlength="100" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Data de nascimento
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtBirthWorker" value="#{workerController.birthForm}" maxlength="10" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left" style="height: 110px;">
+												Foto
+											</div>
+											<div id="container-row-mydata-right" align="left" style="height: 110px;">
+												<p:fileUpload label="Selecionar foto" 
+					            				 	multiple="false"
+					            				 	value="#{workerController.file}" 
+					            				 	mode="simple" 
+					            				 	skinSimple="true"
+					            				 	sizeLimit="20971520"
+					            				 	auto="true"
+					            				 	allowTypes="/(\.|\/)(jpeg|jpg|png|gif|tif)$/"
+					            				 	update=""
+					            				 />												
+											</div>									
+										</div>	
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left" style="height: 130px;">
+												Descrição
+											</div>
+											<div id="container-row-mydata-right" align="left" style="height: 130px;">
+												<p:inputTextarea id="txtDescriptionWorker" value="#{workerController.descriptionForm}" rows="5" cols="30" counter="display" maxlength="200" counterTemplate="{0} caracteres restantes." autoResize="false" />
+    											<h:outputText id="display" />												
+											</div>									
+										</div>																	
+																		
+									</div>
+									
+									<p:messages id="messagesUpdateWorker" globalOnly="true" for="formUpdateWorker:messagesUpdateWorker" showDetail="true" autoUpdate="true" closable="true" />
+										
+									<div class="search-container-button">
+										<BR />
+										<p:commandLink id="btnUpdateWorker" ajax="false" actionListener="#{workerController.update}" styleClass="btn btn-outline btn-xl page-scroll" update="messagesUpdateWorker, txtFirstNameWorker, txtLastNameWorker, txtUsernameWorker, selectJobCategoryWorker, txtCpfWorker, txtEmailWorker, txtBirthWorker, txtDescriptionWorker">
+        									<h:outputText value="Alterar" />
+    									</p:commandLink>										 
+										 										 
+									</div>	
+									
+									
+								</h:form>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

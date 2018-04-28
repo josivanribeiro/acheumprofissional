@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets">
+	<f:view contentType="text/html">
+		<h:head>			
+			<meta charset="utf-8"/>
+		    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+		    <meta name="description" content=""/>
+		    <meta name="author" content=""/>
+
+    		<title>Ache um profissional</title>
+
+		    <!-- Bootstrap Core CSS -->
+		    <link href="resources/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+		    
+		    <!-- Custom Fonts -->
+		    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"/>
+		    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet"/>
+		    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"/>
+		
+		    <!-- Plugin CSS -->
+		    <link rel="stylesheet" href="resources/lib/font-awesome/css/font-awesome.min.css"/>
+		    <link rel="stylesheet" href="resources/lib/simple-line-icons/css/simple-line-icons.css"/>
+		    <link rel="stylesheet" href="resources/lib/device-mockups/device-mockups.min.css"/>
+		
+		    <!-- Theme CSS -->
+		    <link href="resources/css/new-age.min.css" rel="stylesheet"/>
+		    
+		    <!-- Custom CSS -->
+		    <link href="resources/css/custom.css" rel="stylesheet"/>
+		    <link href="resources/css/custom-pf.css" rel="stylesheet"/>
+		    <link href="resources/css/style.css" rel="stylesheet"/>
+		    
+		    <!-- Custom JavaScript -->
+		    <script src="resources/js/functions.js"></script>
+		    
+		    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+			<script src="http://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
+		    		
+		    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		    <!--[if lt IE 9]>
+		        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		    <![endif]-->
+	        						
+			<script type="text/javascript">
+ 
+				$(document).ready(function() {
+					   
+					disableStyleSheet ("theme.css");
+					disableStyleSheet ("primefaces.css");
+										
+					$("#formAddWorker\\:txtCpfWorker").on("keyup", function(e) {
+					    $(this).val(
+					        $(this).val()
+					        .replace(/\D/g, '')
+					        .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3\-\$4")
+					    );
+				    });			
+					
+					$("#formAddContractor\\:txtCpfContractor").on("keyup", function(e) {
+					    $(this).val(
+					        $(this).val()
+					        .replace(/\D/g, '')
+					        .replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, "\$1.\$2.\$3\-\$4")
+					    );
+				    });
+					
+					$("#formAddWorker\\:txtPhoneWorker").on("keyup", function(e) {
+					    $(this).val(
+					        $(this).val()
+					        .replace(/\D/g, '')
+					        .replace(/(\d{2})(\d{5})(\d{4})/g, "(\$1) \$2-\$3")
+					    );
+				    });
+					
+					$("#formAddWorker\\:txtBirthWorker").on("keyup", function(e) {
+					    $(this).val(
+					        $(this).val()
+					        .replace(/\D/g, '')
+					        .replace(/(\d{2})(\d{2})(\d{4})/g, "\$1/\$2/\$3")
+					    );
+				    });
+					
+					$( "span" ).removeClass( "ui-paginator ui-paginator-next ui-icon, ui-paginator ui-paginator-prev ui-icon, ui-paginator ui-paginator-first ui-icon, ui-paginator ui-paginator-last ui-icon" )
+					$(".ui-icon-seek-prev").text('');
+					$(".ui-icon-seek-next").text('');					
+									
+				});
+				
+				/**
+				 * Handles the login ajax request.
+				 */
+				function handleLoginRequest (xhr, status, args) {
+			        if (args.isLogged) {
+			        	redirectTo (args.redirectToPage);
+			        }
+			    }
+				
+			</script>
+			
+		</h:head>
+		<h:body>
+			<ui:insert name="body">
+				...
+			</ui:insert>
+		</h:body>
+	</f:view>
+</html>

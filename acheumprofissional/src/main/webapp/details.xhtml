@@ -1,0 +1,114 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+
+		    <ui:include src="/layout/mainNavDetails.xhtml" />		    
+		    
+		    <section id="details" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Detalhes</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+		                
+							<div class="col-sm-6 col-sm-offset-3 search-result-container">								
+								<div id="container-search-result">									
+									
+									<h:form id="formDetails" enctype="multipart/form-data">
+										<f:metadata>
+	    									<f:viewParam name="workerId" value="#{detailsController.workerIdForm}"/>
+	    									<f:event type="preRenderView" listener="#{detailsController.findById}" />
+										</f:metadata>
+									
+										<div id="container-row-detail">
+											<p:graphicImage id="detailsImage" value="#{detailsController.thumbImage}"/>									
+										</div>									
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Primeiro nome
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.firstName}
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Segundo nome
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.lastName}
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Nome do usuário
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.username}
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Profissão
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.jobCategoryName}
+											</div>									
+										</div>								
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Email
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.email}
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Data de nascimento
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.birth}
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Descrição
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.description}
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-detail-left" align="left">
+												Recomendações
+											</div>
+											<div id="container-row-detail-right" align="left">
+												#{detailsController.workerVOForm.recommendations}
+											</div>									
+										</div>
+									</h:form>							
+									
+								</div>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+		    		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

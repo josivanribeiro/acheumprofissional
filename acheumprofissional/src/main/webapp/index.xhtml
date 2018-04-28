@@ -1,0 +1,254 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+		
+			<script type="text/javascript">
+				
+				$(document).ready(function() {
+					   
+			    	hideWithTimer('formAddWorker\\:messagesAddWorker');
+									
+				});
+			
+				function goToPage() {
+					var id = $("#formSearchByJobCategory\\:selectJobCategory").val();					   
+				    if (parseInt (id) > 0) {
+						redirectTo ('searchResult.page?id=' + id);
+				    }				
+				}  			   				
+			
+			</script>
+
+		    <ui:include src="/layout/mainNav.xhtml" />
+		    
+		    <header>
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-sm-7">
+		                    <div class="header-content">
+		                        <div class="header-content-inner">
+		                            <div class="home-search-container">		                            	
+		                            	<span>Busque prestadores de serviço</span><br/><br/>
+		                            	 <h:form id="formSearchByJobCategory">
+											 <h:selectOneMenu id="selectJobCategory" value="#{workerController.jobCategoryIdFilterForm}">
+	   											<f:selectItems value="#{jobCategoryController.jobCategoryMap}" />
+	   										 </h:selectOneMenu>
+   										 </h:form>
+										 <br/>
+										 <div class="search-container-button">
+										 	<a id="btnSearchWorkers" href="javascript:goToPage();" class="btn btn-outline btn-xl page-scroll">
+        										Pesquisar
+        									</a>
+										 </div>
+				                    </div>
+		                        </div>
+		                    </div>
+		                </div>
+		                <div class="col-sm-5">
+		                    <div class="device-container">
+		                        <div class="device-mockup iphone6_plus portrait white">
+		                            <div class="device">
+		                                <div class="screen">
+		                                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+		                                    <img src="resources/img/demo-screen-1.jpg" class="img-responsive" alt=""/>
+		                                </div>
+		                                <div class="button">
+		                                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </header>
+
+		    <section id="howitworks" class="bg-primary text-center">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-sm-7">		                    
+                            <div class="howitworks-text-container">		                            	
+                            	<span class="howitworks-title-container">Contratante</span><br/><br/>                            	
+                            	<p>Busque um profissional por especialidade.</p>
+                            	<p>Se você não tiver cadastrado, não poderá ver o contato do profissional.</p>
+                            	<p>Se você tiver cadastrado, poderá visualizar o contato do profissional.</p>                            									 										 		                            		                            
+                            </div>		                    
+		                </div>
+		                <br/>
+		                <div class="col-sm-5">
+		                    <div class="howitworks-text-container">		                            	
+                            	<span class="howitworks-title-container">Prestador de serviço</span><br/><br/>                            	 
+                           	 	<p>Cadastre-se em nosso banco de profissionais.</p>
+                           	 	<p>Seu cadastro será acessado por muitos contratantes.</p>
+                           	 	<p>Quanto mais atualizado seu cadastro, maiores serão suas chances.</p>
+                            </div>
+		                </div>		                
+		            </div>
+		        </div>
+		    </section>
+
+		    <section id="addWorker" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Cadastro prestador de serviço</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+							<div class="col-sm-6 col-sm-offset-3 add-worker-container">
+								
+								<h:form id="formAddWorker" enctype="multipart/form-data">									
+									<div class="container-field">
+										<h:outputLabel id="labelFirstNameWorker" for="txtFirstNameWorker" value="Primeiro nome"  /><br></br>
+										<h:inputText id="txtFirstNameWorker" value="#{workerController.firstNameForm}" maxlength="60" />
+									</div>								
+									<div class="container-field">
+										<h:outputLabel id="labelLastNameWorker" for="txtLastNameWorker" value="Sobrenome"  /><br></br>
+										<h:inputText id="txtLastNameWorker" value="#{workerController.lastNameForm}" maxlength="100" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelUsernameWorker" for="txtUsernameWorker" value="Nome do usuário"  /><br></br>
+										<h:inputText id="txtUsernameWorker" value="#{workerController.usernameForm}" maxlength="50" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelPwdWorker" for="txtPwdWorker" value="Senha"/><br></br>
+										<h:inputSecret id="txtPwdWorker" value="#{workerController.pwdForm}" maxlength="50" />
+									</div>									
+									<div class="container-field">
+										<h:outputLabel id="labelCpfWorker" for="txtCpfWorker" value="CPF"/><br></br>
+										<h:inputText id="txtCpfWorker" value="#{workerController.cpfForm}" maxlength="14" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelPhoneWorker" for="txtPhoneWorker" value="Telefone"/><br></br>
+										<h:inputText id="txtPhoneWorker" name="txtPhoneWorker" value="#{workerController.phoneForm}" maxlength="15" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelEmailWorker" for="txtEmailWorker" value="Email"/><br></br>
+										<h:inputText id="txtEmailWorker" name="txtEmailWorker" value="#{workerController.emailForm}" maxlength="100" />
+									</div>									
+									<div class="container-field">
+										<h:outputLabel id="labelBirthWorker" for="txtBirthWorker" value="Data de nascimento (dd/mm/aaaa)"/><br></br>
+										<h:inputText id="txtBirthWorker" value="#{workerController.birthForm}" maxlength="10" />
+									</div>							
+									<div class="container-field">
+										<h:outputLabel id="labelJobCategory" for="selectJobCategory" value="Categoria"/><br></br>
+										<h:selectOneMenu id="selectJobCategoryWorker" value="#{workerController.jobCategoryIdForm}" styleClass="worker-job-category-container" style="height: 47px;">
+   											<f:selectItems value="#{jobCategoryController.jobCategoryMap}" />
+   										</h:selectOneMenu>
+		   							</div>
+									<div class="container-field">
+            								            				 
+			            				 <p:fileUpload label="Selecionar foto" 
+			            				 	multiple="false"
+			            				 	value="#{workerController.file}" 
+			            				 	mode="simple" 
+			            				 	skinSimple="true"
+			            				 	sizeLimit="20971520"
+			            				 	auto="true"
+			            				 	allowTypes="/(\.|\/)(jpeg|jpg|png|gif|tif)$/"
+			            				 	update=""
+			            				 	/>
+			            				 
+			            				      				 
+			            			</div>
+			            			<div class="container-field" style="height: auto;margin-top: 38px;">
+										<h:outputLabel id="labelDescriptionWorker" for="txtDescriptionWorker" value="Descrição"  /><br></br>
+										<p:inputTextarea id="txtDescriptionWorker" value="#{workerController.descriptionForm}" rows="4" cols="50" />
+									</div>
+									
+									<p:messages id="messagesAddWorker" globalOnly="true" for="formAddWorker:messagesAddWorker" showDetail="true" autoUpdate="true" closable="true" />
+			            					
+									<div class="search-container-button">
+																				 
+										<p:commandLink id="btnAddWorker" ajax="false" actionListener="#{workerController.save}" styleClass="btn btn-outline btn-xl page-scroll" update="messagesAddWorker, txtFirstNameWorker, txtLastNameWorker, txtUsernameWorker, txtPwdWorker, txtCpfWorker, txtPhoneWorker, txtEmailWorker, txtBirthWorker, selectJobCategoryWorker, txtDescriptionWorker">
+        									<h:outputText value="Cadastrar" />
+    									</p:commandLink>										 
+										 										 
+									</div>
+									
+									
+								</h:form>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+
+		    <section id="addContractor" class="features">		        
+		        
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Cadastro Contratante</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		            	<div class="container">
+							<div class="col-sm-6 col-sm-offset-3 add-contractor-container">
+								
+								<h:form id="formAddContractor">
+									
+									<div class="container-field">
+										<h:outputLabel id="labelFirstNameContractor" for="txtFirstNameContractor" value="Primeiro nome"  /><br></br>
+										<h:inputText id="txtFirstNameContractor" value="#{contractorController.firstNameForm}" maxlength="60" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelLastNameContractor" for="txtLastNameContractor" value="Sobrenome"  /><br></br>
+										<h:inputText id="txtLastNameContractor" value="#{contractorController.lastNameForm}" maxlength="100" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelUsernameContractor" for="txtUsernameContractor" value="Nome do usuário"  /><br></br>
+										<h:inputText id="txtUsernameContractor" value="#{contractorController.usernameForm}" maxlength="50" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelPwdContractor" for="txtPwdContractor" value="Senha"/><br></br>
+										<h:inputSecret id="txtPwdContractor" value="#{contractorController.pwdForm}" maxlength="50" />
+									</div>									
+									<div class="container-field">
+										<h:outputLabel id="labelCpfContractor" for="txtCpfContractor" value="CPF"/><br></br>
+										<h:inputText id="txtCpfContractor" value="#{contractorController.cpfForm}" maxlength="14" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelEmailContractor" for="txtEmailContractor" value="Email"/><br></br>
+										<h:inputText id="txtEmailContractor" value="#{contractorController.emailForm}" maxlength="100" />
+									</div>
+									
+			            			<p:messages id="messagesAddContractor" globalOnly="true" for="formAddContractor:messagesAddContractor" showDetail="true" autoUpdate="true" closable="true" />
+			            			
+			            			<div class="search-container-button">
+										
+										<p:commandLink id="btnAddContractor"  actionListener="#{contractorController.save}" styleClass="btn btn-outline btn-xl page-scroll" update="messagesAddContractor, txtFirstNameContractor, txtLastNameContractor, txtUsernameContractor, txtPwdContractor, txtCpfContractor, txtEmailContractor" onclick="hideWithTimer('formAddContractor\\:messagesAddContractor');submitWithTimer('formAddContractor');">
+        									<h:outputText value="Cadastrar" />
+    									</p:commandLink>										 
+										 										 
+									</div>
+									
+								</h:form>
+
+							</div>
+						</div>		                
+		            </div>
+		            
+		        </div>	        
+		        
+		    </section>
+		    
+		    <ui:include src="/layout/login.xhtml" />
+		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

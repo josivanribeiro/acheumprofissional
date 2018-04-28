@@ -1,0 +1,100 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+		    
+		    <ui:include src="/layout/mainNavContractor.xhtml" />		    
+		    
+		    <section id="details" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Meus dados</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+		                
+							<div class="col-sm-6 col-sm-offset-3 search-result-container">								
+								
+								
+								<h:form id="formUpdateContractor">
+								
+								
+									<div id="container-search-result">									
+										
+										<div id="container-row-detail">
+																				
+										</div>									
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Primeiro nome
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtFirstNameWorker" value="#{contractorController.firstNameForm}" maxlength="60" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Segundo nome
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtLastNameWorker" value="#{contractorController.lastNameForm}" maxlength="100" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Nome do usuário
+											</div>
+											<div id="container-row-mydata-right" align="left">
+												<h:inputText id="txtUsernameWorker" value="#{contractorController.usernameForm}" maxlength="50" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left" style="height:58px;">
+												CPF
+											</div>
+											<div id="container-row-mydata-right" align="left" style="height:58px;">
+												<h:inputText id="txtCpfWorker" value="#{contractorController.cpfForm}" maxlength="14" />
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left" style="height:58px;">
+												Email
+											</div>
+											<div id="container-row-mydata-right" align="left" style="height:58px;">
+												<h:inputText id="txtEmailWorker" value="#{contractorController.emailForm}" maxlength="100" />
+											</div>									
+										</div>																	
+									</div>
+									
+									<p:messages id="messagesUpdateContractor" globalOnly="true" for="formUpdateContractor:messagesUpdateContractor" showDetail="true" autoUpdate="true" closable="true" />
+										
+									<div class="search-container-button">
+										<BR />
+										<p:commandLink id="btnUpdateContractor"  actionListener="#{contractorController.update}" styleClass="btn btn-outline btn-xl page-scroll" update="messagesUpdateContractor, txtFirstNameWorker, txtLastNameWorker, txtUsernameWorker, txtCpfWorker, txtEmailWorker" onclick="submitWithTimer('formUpdateContractor');">
+        									<h:outputText value="Alterar" />
+    									</p:commandLink>										 
+										 										 
+									</div>	
+									
+									
+								</h:form>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

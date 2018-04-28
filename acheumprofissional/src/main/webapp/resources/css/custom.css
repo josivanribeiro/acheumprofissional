@@ -1,0 +1,281 @@
+
+.link-brand {
+    margin-top: -6px;
+}
+
+.text-brand {
+    top: -4px;
+    margin-left: 10px;
+    vertical-align: bottom;
+    color: #000000;
+    text-align: center;
+    position: relative;
+}
+
+.img-brand {	
+   float: left;
+   height: 50px;   	
+}
+
+.container-text-brand {
+	float:left;
+	height:50px;
+	width:80px;
+}
+
+
+.navbar-default .nav > li > a, .navbar-default .nav > li > a:focus {
+    color: #000000;
+}
+
+.home-search-container {
+	width: 290px;
+	height: 250px;
+	padding: 20px;
+	color: #fff;
+	font-size: 20px;
+	background-color: #000;
+	opacity: 0.6;
+    filter: alpha(opacity=60);
+    border-radius: 20px;
+    margin: 0 auto;	
+}
+
+.row-info {
+	text-align: center;
+	padding-bottom: 20px;	
+}
+
+.howitworks-title-container {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.howitworks-text-container {
+	text-align: left;
+	width: 290px;
+	/* height: 250px; */
+	padding: 20px;
+	color: #fff;
+	font-size: 16px;
+	background-color: #15bf11;
+	opacity: 0.7;
+    filter: alpha(opacity=70);
+    border-radius: 20px;
+    margin: 0 auto;
+}
+
+.home-search-container select {
+	width: 100%;
+	height: 47px;
+	color: #000;	
+}
+
+.search-container-button a { 
+	display:block;
+    width:100%;
+    margin-left:auto;
+	margin-right:auto;
+	font-size: 12px;
+}
+
+.add-worker-container,
+.add-contractor-container,
+.contacts-viewed-container,
+.search-result-container,
+.contract-info-container  {
+	padding: 20px;
+	color: #fff;
+	font-size: 14px;
+	background-color: #000;
+	opacity: 0.6;
+    filter: alpha(opacity=60);
+    border-radius: 20px;    	
+}
+
+.contract-info-container  {
+	background-color: #15bf11;
+}
+
+input, textarea {
+	width: 100%;
+	height: 47px;
+	color: #000;
+	font-size: 16px;
+}
+textarea {
+	height: 100px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    float: left;
+	width: 0%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+label {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.container-field {
+	margin-bottom: 10px;
+}
+
+.worker-job-category-container {
+    width: 100%;
+    height: 47px;
+    color: #000;
+}
+
+.forgot-pwd a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.forgot-pwd a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.forgot-pwd a:hover {
+    text-decoration: underline;
+}
+
+.forgot-pwd a:active {
+    color: #fff;
+    text-decoration: underline;
+}
+
+
+.nav-home > li > a:focus:hover, .navbar-default .nav-home > li > a:hover {
+    color: #fff;
+}
+.nav-home > li > a:focus:hover, .navbar-default .nav-home > li > a:hover {
+    color: #fff;
+}
+.navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+    color: #666;
+    background-color: transparent;
+}
+.nav-home > li > a, .navbar-default .nav-home > li > a:focus {
+    color: #000000;
+}
+.nav-home > li > a, .navbar-default .nav-home > li > a:focus {
+    color: rgba(255,255,255,.7);
+}
+.nav-home > li > a, .navbar-default .nav-home > li > a:focus {
+    color: #222;
+}
+.nav-home > li > a {
+    font-size: 11px;
+}
+.nav-home > li > a {
+    font-family: Lato,Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.nav-home {
+    list-style: none;
+}
+.nav-home > li > a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #000;
+}
+a:focus, a:hover {
+    color: #555;
+    text-decoration: none;
+}
+
+.form-logout {
+	margin-top: 18px;
+	text-transform: uppercase;
+	font-size: 11px;
+	text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800px;
+}
+
+.navbar-default .nav > li.active > a, .navbar-default .nav > li.active > a:focus {
+    color: #555 !important;
+    background-color: transparent;
+}
+
+#container-row-detail{
+	width: 100%;
+	height: auto;
+	text-align: center;
+}
+
+#container-row-detail
+    {
+        content: '';
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+#container-row-detail img {
+	margin: 0 auto;
+	margin-bottom: 18px;
+	display: inline-block;
+    vertical-align: middle;
+}
+#container-row-detail-left{
+	width: 50%;
+	float: left;
+	background-color: #dcdad9;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	height: 33px;
+	padding:5px;
+}
+#container-row-detail-right{
+	width: 50%;
+	float: right;
+	background-color: #fff;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	height: 33px;
+	padding:5px;
+}
+#container-row-mydata-left{
+	width: 50%;
+	float: left;
+	background-color: #dcdad9;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	height: 51px;
+	padding:5px;
+}
+#container-row-mydata-right{
+	width: 50%;
+	float: right;
+	background-color: #fff;
+	color: #333333;
+	font-size: 14px;
+	font-weight: bold;
+	height: 51px;
+	padding:5px;
+}
+
+@media (min-width:768px) {
+	.navbar-default .nav > li > a:focus:hover, .navbar-default .nav > li > a:hover {
+    	color: #666;
+	}
+	
+	.navbar-default.affix .nav > li > a:focus:hover, .navbar-default.affix .nav > li > a:hover {
+    	color: #666;	
+	}
+	
+}
+
+

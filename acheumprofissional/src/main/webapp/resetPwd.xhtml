@@ -1,0 +1,84 @@
+<ui:composition template="/layout/template.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+			
+		<ui:define name="body" id="page-top">
+		
+			<script type="text/javascript">
+				
+				$(document).ready(function() {
+					   
+			    	hideWithTimer('formResetPwd\\:messagesResetPwd');
+									
+				});				 			   				
+			
+			</script>
+
+		    <ui:include src="/layout/mainNavForgotAndResetPwd.xhtml" />		    
+		    
+		    <section id="details" class="features">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Criar nova senha</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="container">
+		                
+							<div class="col-sm-6 col-sm-offset-3 search-result-container">								
+								
+								
+								<h:form id="formResetPwd">
+								
+								
+									<div id="container-search-result">									
+										
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left">
+												Senha
+											</div>
+											<div id="container-row-mydata-right" align="left">												
+												<h:inputSecret id="txtFirstResetPwd" value="#{resetPwdController.firstResetPwdForm}" maxlength="50" />											
+											</div>									
+										</div>
+										<div id="container-row-detail">
+											<div id="container-row-mydata-left" align="left" style="height: 57px;">
+												Confirme a senha
+											</div>
+											<div id="container-row-mydata-right" align="left" style="height: 57px;">
+												<h:inputSecret id="txtSecondResetPwd" value="#{resetPwdController.secondResetPwdForm}" maxlength="50" />
+											</div>									
+										</div>																				
+																		
+									</div>
+									
+									<p:messages id="messagesResetPwd" globalOnly="true" for="formResetPwd:messagesResetPwd" showDetail="true" autoUpdate="true" closable="true" />
+										
+									<div class="search-container-button">
+										<BR />
+										<p:commandLink id="btnSendEmail"  actionListener="#{resetPwdController.findAndResetPwd}" styleClass="btn btn-outline btn-xl page-scroll" update="messagesResetPwd, txtFirstResetPwd, txtSecondResetPwd" onclick="hideWithTimer('formResetPwd\\:messagesResetPwd');submitWithTimer('formResetPwd');">
+        									<h:outputText value="Criar senha" />
+    									</p:commandLink>										 
+									
+									</div>	
+									
+									
+								</h:form>
+
+							</div>
+						</div>		                
+		            </div>
+		        </div>
+		    </section>
+		    
+		    <ui:include src="/layout/footer.xhtml" />		    
+		    		
+		</ui:define>	
+</ui:composition>

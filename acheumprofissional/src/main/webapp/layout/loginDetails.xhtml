@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://java.sun.com/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui">
+	<ui:composition>
+
+	<section id="login" class="features">
+		        
+		        
+		        <div class="container">
+		            <div class="row">
+		
+		                <div class="col-lg-12 text-center">
+		                    <div class="section-heading">
+		                        <h2>Login</h2>		                        
+		                        <hr/>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		            	<div class="container">
+							<div class="col-sm-6 col-sm-offset-3 add-contractor-container">
+								
+								<h:form id="formLogin">									
+									
+									<div class="container-field">
+										<h:outputLabel id="labelUsernameLogin" for="txtUsernameLogin" value="Nome do usuário" /><br></br>
+										<h:inputText id="txtUsernameLogin" value="#{loginController.usernameForm}" maxlength="50" />
+									</div>
+									<div class="container-field">
+										<h:outputLabel id="labelPwdLogin" for="txtPwdLogin" value="Senha"/><br></br>
+										<h:inputSecret id="txtPwdLogin" value="#{loginController.pwdForm}" maxlength="50" />
+									</div>
+									<div class="forgot-pwd" style="margin-bottom:10px">
+										<a href="forgotPwd.page" >Esqueceu a senha?</a>
+									</div>								
+			            					
+			            			<p:messages id="messagesLogin" globalOnly="true" for="formLogin:messagesLogin" showDetail="true" autoUpdate="true" closable="true" />			
+			            						            						
+			            			<div class="search-container-button">
+										 
+										 <p:commandLink id="btnLogin" actionListener="#{loginController.doLoginSearchResult}" update="messagesLogin, txtUsernameLogin, txtPwdLogin" oncomplete="handleLoginRequest (xhr, status, args)" onclick="hideWithTimer('formLogin\\:messagesLogin');" styleClass="btn btn-outline btn-xl page-scroll">
+        									<h:outputText value="Login" />
+    									</p:commandLink>
+										 										 
+									</div>									
+								</h:form>
+
+							</div>
+						</div>          
+		            </div>
+		            
+		        </div>
+		        
+
+	</section>
+
+</ui:composition>
+</html>
